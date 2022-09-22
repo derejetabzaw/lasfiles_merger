@@ -123,9 +123,10 @@ for num in range(group):
         las = lasio.LASFile()
         df_lists.append(las_to_df_with_units(file_read[index]))
         df_merge = (pd.concat(df_lists)).sort_index()
-        df_merge = df_merge.drop_duplicates()
+        # df_merge = df_merge.drop_duplicates()
         df_merge = df_merge.groupby(df_merge.index).max()
-        las.set_data_from_df(df_merge)
+
+        las.set_data(df_merge)
 
         las.well = file_read[index].well
         param_data.append(parameter_splicer(filenames[index]))

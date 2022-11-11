@@ -20,7 +20,7 @@ def dir_path(string):
     else:
         raise NotADirectoryError(string)
 
-path = dir_path(args.lasfiles_folder_path)
+# path = dir_path(args.lasfiles_folder_path)
 
 if not os.path.exists("MergedLAS"):
     os.makedirs("MergedLAS")
